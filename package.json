@@ -1,0 +1,22 @@
+{
+  "author": "Kyle Anson",
+  "name": "joke-off",
+  "version": "1.0.0",
+  "description": "would you rather online",
+  "scripts": {
+    "start": "node server/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Riski24/joke-off"
+  },
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "morgan": "^1.8.1",
+    "pg": "^6.1.4",
+    "pg-hstore": "^2.3.2",
+    "q": "^1.4.1",
+    "sequelize": "^3.30.2"
+  }
+}
