@@ -18,27 +18,30 @@ module.exports = {
       });
     },
     findBracket: function(req, res) {
-      // Check if user url
-      db.Bracket.findOne({where: {userUrl: req.query.url}})
-      .then(function(bracket) {
-        if (!bracket) {
-          // If bracket isnt found check if admin url
-          db.Bracket.findOne({where: {adminUrl: req.query.url}})
-          .then(function(bracket) {
-            res.status(200).send({bracket: bracket, admin: true});
-          })
-          .catch(function(err) {
-            console.error(err);
-            res.status(500).send();
-          });
-        } else {
-          res.status(200).send({bracket: bracket, admin: false});
-        }
-      })
-      .catch(function(err) {
-        console.error(err);
-        res.status(500).send();
-      });
+      // Check if url is for admin access
+      if (req.query.url.length === 12) {
+        db.Bracket.findOne({where: {adminUrl: req.query.url}})
+        .then(function(bracket) {
+          res.status(200).send({bracket: bracket, admin: true});
+        })
+        .catch(function(err) {
+          console.error(err);
+          res.status(500).send();
+        });
+      // Check if url is for url access
+      } else if (req.query.url.length === 10) {
+        db.Bracket.findOne({where: {userUrl: req.query.url}})
+        .then(function(bracket) {
+          res.status(200).send({bracket: bracket, admin: true});
+        })
+        .catch(function(err) {
+          console.error(err);
+          res.status(500).send();
+        });
+      // Url must be invalid
+      } else {
+        res.status(404).send();
+      }
     }
   },
   Competitor: {
