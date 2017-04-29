@@ -9,6 +9,6 @@ angular.module('app', [
       templateUrl: 'routes/user-bracket.html'
     })
     .otherwise({
-      redirectTo: '/create-bracket'
+      redirectTo: '/user-bracket'
     });
 })

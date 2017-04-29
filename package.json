@@ -2,9 +2,10 @@
   "author": "Kyle Anson",
   "name": "joke-off",
   "version": "1.0.0",
-  "description": "would you rather online",
+  "description": "A bracket based joke competition",
   "scripts": {
-    "start": "node server/server.js"
+    "start": "node server/server.js",
+    "dev": "nodemon server/server.js"
   },
   "repository": {
     "type": "git",
@@ -16,7 +17,11 @@
     "morgan": "^1.8.1",
     "pg": "^6.1.4",
     "pg-hstore": "^2.3.2",
-    "q": "^1.4.1",
+    "randomstring": "^1.1.5",
     "sequelize": "^3.30.2"
+  },
+  "devDependencies": {
+    "mysql": "^2.13.0",
+    "nodemon": "^1.11.0"
   }
 }
