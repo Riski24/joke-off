@@ -4,9 +4,6 @@ var bodyParser = require('body-parser');
 
 var app = express();
 
-// connect to postgresql database
-//var db = require('./database/config.js');
-
 ////////// middleware //////////
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({extended: true}));
@@ -21,5 +18,3 @@ require('./routes.js')(app);
 var port = process.env.PORT || 3000;
 app.listen(port);
 console.log('Listening on port:', port);
-
-//module.exports = app;
