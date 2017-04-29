@@ -1,5 +1,5 @@
 var db = require('./database/db.js');
-var utils = require('./utils/utils.js');
+var utils = require('./lib/utils.js');
 
 module.exports = {
   Bracket: {
