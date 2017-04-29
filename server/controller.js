@@ -1,10 +1,11 @@
 var db = require('./database/db.js');
+var utils = require('./utils/utils.js');
 
 module.exports = {
   Bracket: {
     createBracket: function(req, res) {
-      var adminUrl = 'PLACEHOLDER';
-      var userUrl = 'PLACEHOLDER';
+      var adminUrl = utils.generateAdminUrl();
+      var userUrl = utils.generateUserUrl();
       db.Bracket.create({
         adminUrl: adminUrl,
         userUrl: userUrl
