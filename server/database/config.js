@@ -21,7 +21,7 @@ var Round = db.define('rounds', {
   winner: Sequelize.INTEGER
 });
 
-Competitor.belongsTo(Bracket);
-Round.belongsTo(Bracket);
+Competitor.belongsTo(Bracket, {as: 'bracket'});
+Round.belongsTo(Bracket, {as: 'bracket'});
 
 module.exports = db;
