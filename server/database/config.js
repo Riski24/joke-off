@@ -3,7 +3,7 @@ var db = null;
 if (process.env.DATABASE_URL) {
   db = new Sequelize(process.env.DATABASE_URL);
 } else {
-  db = new Sequelize('joke-off-local', 'root', '');
+  db = new Sequelize('joke_off_local', 'root', '');
 }
 
 var Bracket = db.define('brackets', {
