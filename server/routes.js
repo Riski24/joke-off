@@ -1,8 +1,12 @@
 var controller = require('./controller.js');
 
 module.exports = function(app) {
-  app.get('/api/questions', controller.questions.getAll);
-  app.post('/api/create-question', controller.questions.postOne);
-  app.post('/api/vote', controller.questions.vote);
-  //app.get('/api/create-dummmy-data', questionController.createDummyData);
+	app.post('/api/createBracket', controller.Bracket.createBracket);
+	app.get('/api/findBracket', controller.Bracket.findBracket);
+
+	app.post('/api/createCompetitor', controller.Competitor.createCompetitor);
+	app.get('/api/findCompetitor', controller.Competitor.findCompetitor);
+
+	app.post('/api/createRound', controller.Round.createRound);
+	app.get('/api/findRound', controller.Round.findRound);
 };
