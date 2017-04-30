@@ -10,8 +10,12 @@ angular.module('app', [
     controller: 'CreateBracket',
     templateUrl: 'routes/create-bracket.html'
   })
+  .when('/a/:url', {
+    controller: 'AdminBracket',
+    templateUrl: 'routes/admin-bracket.html'
+  })
   .otherwise({
-    controller: 'Bracket',
-    templateUrl: 'routes/bracket.html'
+    controller: 'UserBracket',
+    templateUrl: 'routes/user-bracket.html'
   });
 })

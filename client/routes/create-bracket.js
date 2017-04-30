@@ -1,6 +1,6 @@
 angular.module('app.createBracket', [])
 
-.controller('CreateBracket', function($scope, Brackets) {
+.controller('CreateBracket', function($scope, $location, Brackets) {
 	$scope.serverResponded = false;
 
 	$scope.createBracket = function() {
@@ -9,8 +9,8 @@ angular.module('app.createBracket', [])
 		})
 		.then(function(response) {
 			$scope.serverResponded = true;
-			$scope.adminUrl = response.data.adminUrl;
-			$scope.userUrl = response.data.userUrl;
+			$scope.adminUrl = $location.host() + response.data.adminUrl;
+			$scope.userUrl = $location.host() + response.data.userUrl;
 		});
 	};
 });
