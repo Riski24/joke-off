@@ -1,10 +1,10 @@
 var express = require('express');
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
-var http = require('http').Server(app);
-var io = require('socket.io')(http);
-
 var app = express();
+var server = require('http').Server(app);
+var io = require('socket.io')(server);
+
 
 ////////// middleware //////////
 app.use(morgan('dev'));
@@ -21,6 +21,6 @@ require('./socketIOController.js')(io);
 
 ////////// listen //////////
 var port = process.env.PORT || 3000;
-http.listen(port, function() {
+server.listen(port, function() {
 	console.log('Listening on port:', port);
 });
