@@ -1,6 +1,6 @@
 angular.module('app.services', [])
 
-.factory('Brackets', function($http) {
+.factory('Bracket', function($http) {
   var createBracket = function(data) {
     return $http({
       method: 'POST',
@@ -30,7 +30,7 @@ angular.module('app.services', [])
   };
 })
 
-.factory('Competitors', function($http) {
+.factory('Competitor', function($http) {
   var createCompetitor = function(data) {
     return $http({
       method: 'POST',

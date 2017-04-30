@@ -1,7 +1,7 @@
 angular.module('app.adminBracket', [])
 
-.controller('AdminBracket', function($scope, $routeParams, $location, Brackets, Competitors) {
-	Brackets.findAdminBracket($routeParams.url)
+.controller('AdminBracket', function($scope, $routeParams, $location, Bracket, Competitor) {
+	Bracket.findAdminBracket($routeParams.url)
 	.then(function(response) {
 		$scope.bracket = response.data;
 
@@ -9,7 +9,7 @@ angular.module('app.adminBracket', [])
 	});
 
 	$scope.addCompetitor = function() {
-		Competitors.createCompetitor({
+		Competitor.createCompetitor({
 			bracketId: $scope.bracket.id,
 			name: $scope.competitorName
 		})
@@ -19,7 +19,7 @@ angular.module('app.adminBracket', [])
 	};
 
 	var getCompetitorList = function() {
-		Competitors.findBracketCompetitors($scope.bracket.id)
+		Competitor.findBracketCompetitors($scope.bracket.id)
 		.then(function(response) {
 			$scope.competitors = response.data;
 		});

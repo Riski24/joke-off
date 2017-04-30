@@ -1,10 +1,10 @@
 angular.module('app.createBracket', [])
 
-.controller('CreateBracket', function($scope, $location, Brackets) {
+.controller('CreateBracket', function($scope, $location, Bracket) {
 	$scope.serverResponded = false;
 
 	$scope.createBracket = function() {
-		Brackets.createBracket({
+		Bracket.createBracket({
 			name: $scope.name
 		})
 		.then(function(response) {
