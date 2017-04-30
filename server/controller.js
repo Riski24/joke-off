@@ -22,7 +22,6 @@ module.exports = {
     findAdminBracket: function(req, res) {
       db.Bracket.findOne({where: {adminUrl: req.query.url}})
       .then(function(bracket) {
-        console.log(bracket)
         res.status(200).send(bracket);
       })
       .catch(function(err) {
@@ -31,10 +30,8 @@ module.exports = {
       });
     },
     findUserBracket: function(req, res) {
-      console.log(req.query.url)
       db.Bracket.findOne({where: {userUrl: req.query.url}})
       .then(function(bracket) {
-        console.log(bracket)
         res.status(200).send(bracket);
       })
       .catch(function(err) {

@@ -10,7 +10,7 @@ angular.module('app.createBracket', [])
 		.then(function(response) {
 			$scope.serverResponded = true;
 			var host = $location.host() + '/#/';
-			$scope.adminUrl = host + response.data.adminUrl;
+			$scope.adminUrl = host + 'a/' + response.data.adminUrl;
 			$scope.userUrl = host + response.data.userUrl;
 		});
 	};

@@ -1,8 +1,7 @@
 angular.module('app.adminBracket', [])
 
-.controller('AdminBracket', function($scope, $location, Brackets) {
-	console.log($scope.url)
-	Brackets.findAdminBracket($location.url().slice(1))
+.controller('AdminBracket', function($scope, $routeParams, $location, Brackets) {
+	Brackets.findAdminBracket($routeParams.url)
 	.then(function(response) {
 		$scope.bracket = response.data;
 	});

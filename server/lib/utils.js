@@ -8,7 +8,7 @@ exports.generateAdminUrl = function() {
 	var url;
 
 	do {
-		url = 'a/' + randomstring.generate(10);
+		url = randomstring.generate(10);
 	} while (urls[url])
 
 	urls[url] = true;
