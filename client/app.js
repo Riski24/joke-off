@@ -1,6 +1,6 @@
 angular.module('app', [
   'app.createBracket',
-  'app.userBracket',
+  'app.bracket',
   'ngRoute'
 ])
 .config(function($routeProvider) {
@@ -9,11 +9,8 @@ angular.module('app', [
     controller: 'CreateBracket',
     templateUrl: 'routes/create-bracket.html'
   })
-  .when('/user-bracket', {
-    controller: 'UserBracket',
-    templateUrl: 'routes/user-bracket.html'
-  })
   .otherwise({
-    redirectTo: '/'
+    controller: 'Bracket',
+    templateUrl: 'routes/bracket.html'
   });
 })
