@@ -39,7 +39,15 @@ angular.module('app.services', [])
     });
   };
 
+  var findBracketCompetitors = function(bracketId) {
+    return $http({
+      method: 'GET',
+      url: '/api/Competitors?bracketId=' + bracketId
+    });
+  };
+
   return {
-    createCompetitor: createCompetitor
+    createCompetitor: createCompetitor,
+    findBracketCompetitors: findBracketCompetitors
   }
 })

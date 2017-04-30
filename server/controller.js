@@ -63,6 +63,16 @@ module.exports = {
         console.error(err);
         res.status(500).send();
       });
+    },
+    findBracketCompetitors: function(req, res) {
+      db.Competitor.findAll({where: {bracketId: req.query.bracketId}})
+      .then(function(competitors) {
+        res.status(200).send(competitors);
+      })
+      .catch(function(err) {
+        console.error(err);
+        res.status(500).send();
+      });
     }
   },
   Round: {
