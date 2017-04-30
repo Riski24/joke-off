@@ -29,3 +29,17 @@ angular.module('app.services', [])
     findUserBracket: findUserBracket
   };
 })
+
+.factory('Competitors', function($http) {
+  var createCompetitor = function(data) {
+    return $http({
+      method: 'POST',
+      url: '/api/Competitor',
+      data: data
+    });
+  };
+
+  return {
+    createCompetitor: createCompetitor
+  }
+})
