@@ -7,8 +7,9 @@ module.exports = {
       var adminUrl = utils.generateAdminUrl();
       var userUrl = utils.generateUserUrl();
       db.Bracket.create({
-        adminUrl: adminUrl,
-        userUrl: userUrl
+        name: req.body.name,
+        adminUrl: utils.generateAdminUrl(),
+        userUrl: utils.generateUserUrl()
       })
       .then(function(newBracket) {
         res.status(201).send(newBracket);
