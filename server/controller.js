@@ -34,7 +34,7 @@ module.exports = {
       } else if (req.query.url.length === 10) {
         db.Bracket.findOne({where: {userUrl: req.query.url}})
         .then(function(bracket) {
-          res.status(200).send({bracket: bracket, admin: true});
+          res.status(200).send({bracket: bracket, admin: false});
         })
         .catch(function(err) {
           console.error(err);

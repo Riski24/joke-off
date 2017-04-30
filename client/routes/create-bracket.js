@@ -9,8 +9,9 @@ angular.module('app.createBracket', [])
 		})
 		.then(function(response) {
 			$scope.serverResponded = true;
-			$scope.adminUrl = $location.host() + response.data.adminUrl;
-			$scope.userUrl = $location.host() + response.data.userUrl;
+			var host = $location.host() + '/#/';
+			$scope.adminUrl = host + response.data.adminUrl;
+			$scope.userUrl = host + response.data.userUrl;
 		});
 	};
 });

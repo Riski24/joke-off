@@ -1,6 +1,7 @@
 angular.module('app', [
   'app.createBracket',
-  'app.bracket',
+  'app.adminBracket',
+  'app.userBracket',
   'app.services',
   'ngRoute'
 ])

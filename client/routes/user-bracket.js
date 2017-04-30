@@ -1,7 +1,7 @@
-angular.module('app.bracket', [])
+angular.module('app.userBracket', [])
 
 .controller('UserBracket', function($scope, $location, Brackets) {
-	Brackets.findBracket($location.url())
+	Brackets.findBracket($location.url().slice(1))
 	.then(function(response) {
 		$scope.bracket = response.data;
 	});
