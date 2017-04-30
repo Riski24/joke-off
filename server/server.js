@@ -1,6 +1,8 @@
 var express = require('express');
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
 
 var app = express();
 
@@ -14,7 +16,13 @@ app.use(express.static(__dirname + '/../client'));
 ////////// routes //////////
 require('./routes.js')(app);
 
+////////// socket.io //////////
+io.on('connection', function(socket) {
+	console.log('connection')
+});
+
 ////////// listen //////////
 var port = process.env.PORT || 3000;
-app.listen(port);
-console.log('Listening on port:', port);
+http.listen(port, function() {
+	console.log('Listening on port:', port);
+});
