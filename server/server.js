@@ -17,9 +17,7 @@ app.use(express.static(__dirname + '/../client'));
 require('./routes.js')(app);
 
 ////////// socket.io //////////
-io.on('connection', function(socket) {
-	console.log('connection')
-});
+require('./socketIOController.js')(io);
 
 ////////// listen //////////
 var port = process.env.PORT || 3000;
