@@ -2,5 +2,6 @@ var db = require('./config.js');
 
 db.sync();
 
-exports.Bracket = db.models.Bracket;
-exports.Competitor = db.models.Competitor;
+exports.Bracket = db.models.brackets;
+exports.Competitor = db.models.competitors;
+exports.Round = db.models.rounds;
