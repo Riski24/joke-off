@@ -9,15 +9,23 @@ angular.module('app.services', [])
     });
   };
 
-  var findBracket = function(url) {
+  var findAdminBracket = function(url) {
     return $http({
       method: 'GET',
-      url: '/api/Bracket?url=' + url
+      url: '/api/adminBracket?url=' + url
+    });
+  };
+
+  var findUserBracket = function(url) {
+    return $http({
+      method: 'GET',
+      url: '/api/userBracket?url=' + url
     });
   };
 
   return {
     createBracket: createBracket,
-    findBracket: findBracket
+    findAdminBracket: findAdminBracket,
+    findUserBracket: findUserBracket
   };
 })
