@@ -1,47 +1,23 @@
 angular.module('app.services', [])
 
-.factory('Questions', function($http) {
-
-  var getAll = function() {
-    return $http({
-      method: 'GET',
-      url: '/api/questions'
-    })
-    .then(function(data) {
-      return data.data;
-    });
-  };
-
-  var getOne = function() {
-    return $http({
-      method: 'GET',
-      url: '/api/random'
-    })
-    .then(function(data) {
-      return data.data;
-    })
-  };
-
-  var postOne = function(data) {
+.factory('Brackets', function($http) {
+  var createBracket = function(data) {
     return $http({
       method: 'POST',
-      url: '/api/create-question',
+      url: '/api/Bracket',
       data: data
     });
   };
 
-  var vote = function(data) {
+  var findBracket = function(url) {
     return $http({
-      method: 'POST',
-      url: '/api/vote',
-      data: data
+      method: 'GET',
+      url: '/api/Bracket?url=' + url
     });
-  }
+  };
 
   return {
-    getAll: getAll,
-    getOne: getOne,
-    postOne: postOne,
-    vote: vote
+    createBracket: createBracket,
+    findBracket: findBracket
   };
-});
+})
