@@ -1,6 +1,7 @@
 angular.module('app', [
   'app.createBracket',
   'app.bracket',
+  'app.services',
   'ngRoute'
 ])
 .config(function($routeProvider) {
