@@ -5,6 +5,9 @@
 	<input type="text" ng-model="competitorName" placeholder="Competitor's Name">
 	<input type="submit" value="Add" ng-click="addCompetitor()">
 </form>
+<br><br>
+
+<button ng-disabled="bracket.inProgress" ng-click="randomizePairs()">Randomize Bracket</button>
 
 <br><br>
 <div ng-repeat="competitor in competitors">

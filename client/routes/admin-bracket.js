@@ -27,6 +27,31 @@ angular.module('app.adminBracket', [])
 		});
 	};
 
+	$scope.randomizePairs = function() {
+		var competitors = [];
+
+		$scope.competitors.forEach(function(competitor) {
+			competitors.push(competitor.id);
+		});
+		if (competitors.length % 2 !== 0) {
+			competitors.push('BYE');
+		}
+
+		for (var i = 0; i < competitors.length; i++) {
+			var index = Math.floor(Math.random() * (competitors.length - i) + i);
+			if (index !== i) {
+				var temp = competitors[i];
+				competitors[i] = competitors[index];
+				competitors[index] = temp;
+			}
+		}
+
+		Competitor.sendPairs(competitors)
+		.then(function(response) {
+			socket.emit('competitorListChange');
+		});
+	};
+
 	socket.on('competitorListChange', function() {
 		getCompetitorList();
 	});

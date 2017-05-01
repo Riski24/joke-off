@@ -53,9 +53,18 @@ angular.module('app.services', [])
     });
   };
 
+  var sendPairs = function(data) {
+    return $http({
+      method: 'POST',
+      url: '/api/CompetitorPairs',
+      data: data
+    })
+  }
+
   return {
     createCompetitor: createCompetitor,
     findBracketCompetitors: findBracketCompetitors,
-    deleteCompetitor: deleteCompetitor
+    deleteCompetitor: deleteCompetitor,
+    sendPairs: sendPairs
   }
 })
