@@ -73,6 +73,16 @@ module.exports = {
         console.error(err);
         res.status(500).send();
       });
+    },
+    deleteCompetitor: function(req, res) {
+      db.Competitor.destroy({where: {id: req.query.id}})
+      .then(function(rowAffected) {
+        res.status(200).send();
+      })
+      .catch(function(err) {
+        console.error(err);
+        res.status(500).send();
+      });
     }
   },
   Round: {
