@@ -16,9 +16,13 @@ angular.module('app.adminBracket', [])
 			name: $scope.competitorName
 		})
 		.then(function(response) {
-			getCompetitorList();
+			socket.emit('competitorListChange');
 		});
 	};
+
+	socket.on('competitorListChange', function() {
+		getCompetitorList();
+	});
 
 	var getCompetitorList = function() {
 		Competitor.findBracketCompetitors($scope.bracket.id)
