@@ -20,6 +20,13 @@ angular.module('app.adminBracket', [])
 		});
 	};
 
+	$scope.deleteCompetitor = function(id) {
+		Competitor.deleteCompetitor(id)
+		.then(function(response) {
+			socket.emit('competitorListChange');
+		});
+	};
+
 	socket.on('competitorListChange', function() {
 		getCompetitorList();
 	});

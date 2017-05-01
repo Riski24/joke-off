@@ -8,5 +8,6 @@
 
 <br><br>
 <div ng-repeat="competitor in competitors">
+	<button ng-click="deleteCompetitor(competitor.id)">Delete</button>
 	{{competitor.name}}<br>
 </div>

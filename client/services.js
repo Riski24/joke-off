@@ -46,8 +46,16 @@ angular.module('app.services', [])
     });
   };
 
+  var deleteCompetitor = function(id) {
+    return $http({
+      method: 'DELETE',
+      url: '/api/Competitor?id=' + id
+    });
+  };
+
   return {
     createCompetitor: createCompetitor,
-    findBracketCompetitors: findBracketCompetitors
+    findBracketCompetitors: findBracketCompetitors,
+    deleteCompetitor: deleteCompetitor
   }
 })
