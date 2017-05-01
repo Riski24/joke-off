@@ -84,24 +84,5 @@ module.exports = {
         res.status(500).send();
       });
     }
-  },
-  Round: {
-    createRound: function(req, res) {
-      db.Round.create({
-        bracketId: req.body.bracketId,
-        competitor1: req.body.competitor1,
-        competitor2: req.body.competitor2
-      })
-    },
-    findRound: function(req, res) {
-      db.Round.findOne({where: {id: req.query.id}})
-      .then(function(round) {
-        res.status(200).send(round);
-      })
-      .catch(function(err) {
-        console.error(err);
-        res.status(500).send();
-      });
-    }
   }
 };

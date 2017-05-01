@@ -4,4 +4,3 @@ db.sync();
 
 exports.Bracket = db.models.brackets;
 exports.Competitor = db.models.competitors;
-exports.Round = db.models.rounds;

@@ -14,17 +14,11 @@ var Bracket = db.define('brackets', {
 
 var Competitor = db.define('competitors', {
 	bracketId: {type: Sequelize.INTEGER, allowNull: false},
-  name: Sequelize.STRING
-});
-
-var Round = db.define('rounds', {
-	bracketId: {type: Sequelize.INTEGER, allowNull: false},
-  competitor1: Sequelize.INTEGER,
-  competitor2: Sequelize.INTEGER,
-  winner: Sequelize.INTEGER
+  name: {type: Sequelize.STRING, allowNull: false, unique: true},
+  wins: {type: Sequelize.INTEGER, allowNull: false, defaultValue: 0},
+  opponent: Sequelize.STRING
 });
 
 Competitor.belongsTo(Bracket, {foreignKey: 'bracketId'});
-Round.belongsTo(Bracket, {foreignKey: 'bracketId'});
 
 module.exports = db;

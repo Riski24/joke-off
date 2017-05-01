@@ -9,7 +9,4 @@ module.exports = function(app) {
 	app.get('/api/Competitor', controller.Competitor.findCompetitor);
 	app.get('/api/Competitors', controller.Competitor.findBracketCompetitors);
 	app.delete('/api/Competitor', controller.Competitor.deleteCompetitor);
-
-	app.post('/api/Round', controller.Round.createRound);
-	app.get('/api/Round', controller.Round.findRound);
 };
