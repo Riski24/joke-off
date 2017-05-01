@@ -9,7 +9,8 @@ if (process.env.DATABASE_URL) {
 var Bracket = db.define('brackets', {
 	name: Sequelize.STRING,
   adminUrl: {type: Sequelize.STRING, allowNull: false, unique: true},
-  userUrl: {type: Sequelize.STRING, allowNull: false, unique: true}
+  userUrl: {type: Sequelize.STRING, allowNull: false, unique: true},
+  inProgress: {type: Sequelize.BOOLEAN, allowNull: false, defaultValue: false}
 });
 
 var Competitor = db.define('competitors', {
